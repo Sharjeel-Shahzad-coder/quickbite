@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuickBite - Track order</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('qb_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="track">
+<header class="site-header"><div class="wrap nav">
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>QuickBite</a>
+<button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+<nav class="links" id="nav-links" aria-label="Main"><a href="index.html" data-nav="home">Restaurants</a><a href="track.html" data-nav="track">Track order</a><a href="admin.html" data-nav="admin">Kitchen admin</a></nav>
+<div class="nav-actions"><button class="icon-btn" id="theme-toggle" aria-label="Switch between light and dark theme">&#9680;</button>
+<a class="cart-link" id="cart-link" href="cart.html" aria-label="Open cart">Cart <span class="badge" id="cart-count">0</span></a></div>
+</div></header>
+<main class="wrap">
+  <h1>Track your order</h1>
+  <form id="track-form" class="card">
+    <div class="track-row"><div><label for="order-id-input" style="margin-top:0">Order number</label>
+    <input id="order-id-input" inputmode="numeric" placeholder="For example 2"></div>
+    <button type="submit" class="btn" id="track-btn">Show status</button></div>
+    <div id="recent-orders" class="chips" style="margin-top:.8rem"></div>
+  </form>
+  <div id="track-error" class="msg err hidden" role="alert"></div>
+  <section id="order-details" class="card hidden">
+    <h2>Order <span id="t-id"></span></h2>
+    <p class="meta" id="t-meta"></p>
+    <p>Status: <strong id="order-status" class="pill"></strong></p>
+    <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+    <ol class="steps" id="steps"></ol>
+    <div id="t-items"></div>
+    <p class="meta" id="refresh-note" aria-live="polite"></p>
+  </section>
+</main>
+<footer>QuickBite &middot; served by <span id="host">...</span></footer>
+<script src="js/app.js"></script>
+</body>
+</html>

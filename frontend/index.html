@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuickBite - Food delivery</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('qb_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+<header class="site-header"><div class="wrap nav">
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>QuickBite</a>
+<button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+<nav class="links" id="nav-links" aria-label="Main"><a href="index.html" data-nav="home">Restaurants</a><a href="track.html" data-nav="track">Track order</a><a href="admin.html" data-nav="admin">Kitchen admin</a></nav>
+<div class="nav-actions"><button class="icon-btn" id="theme-toggle" aria-label="Switch between light and dark theme">&#9680;</button>
+<a class="cart-link" id="cart-link" href="cart.html" aria-label="Open cart">Cart <span class="badge" id="cart-count">0</span></a></div>
+</div></header>
+<section class="hero"><div class="wrap">
+  <h1>What are you craving tonight?</h1>
+  <p class="lead">Order from local kitchens and follow your food from the stove to your door.</p>
+  <div class="search"><label class="sr-only" for="search">Search restaurants or cuisines</label>
+  <input id="search" type="search" placeholder="Search restaurants or cuisines" autocomplete="off"></div>
+  <div class="chips" id="chips" role="group" aria-label="Filter by cuisine"></div>
+  <p class="hero-stats" id="hero-stats"></p>
+</div></section>
+<main class="wrap">
+  <div class="toolbar"><h2>Restaurants</h2>
+    <div class="toolbar-r"><span class="meta" id="result-count" aria-live="polite"></span>
+    <label class="sr-only" for="sort">Sort restaurants</label>
+    <select id="sort"><option value="rating">Top rated</option><option value="time">Fastest delivery</option><option value="name">A to Z</option></select></div>
+  </div>
+  <div id="restaurant-list" class="grid" aria-live="polite"></div>
+</main>
+<footer>QuickBite &middot; served by <span id="host">...</span></footer>
+<script src="js/app.js"></script>
+</body>
+</html>

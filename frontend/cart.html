@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuickBite - Your cart</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('qb_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cart">
+<header class="site-header"><div class="wrap nav">
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>QuickBite</a>
+<button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+<nav class="links" id="nav-links" aria-label="Main"><a href="index.html" data-nav="home">Restaurants</a><a href="track.html" data-nav="track">Track order</a><a href="admin.html" data-nav="admin">Kitchen admin</a></nav>
+<div class="nav-actions"><button class="icon-btn" id="theme-toggle" aria-label="Switch between light and dark theme">&#9680;</button>
+<a class="cart-link" id="cart-link" href="cart.html" aria-label="Open cart">Cart <span class="badge" id="cart-count">0</span></a></div>
+</div></header>
+<main class="wrap">
+  <h1>Your cart</h1>
+  <div class="cart-layout" id="cart-layout">
+    <div>
+      <section class="card" id="cart-panel">
+        <div id="cart-items"></div>
+        <div class="total"><span>Total</span><span id="cart-total">Rs. 0</span></div>
+        <p><button type="button" class="btn secondary small" id="clear-cart">Clear cart</button></p>
+      </section>
+      <form id="checkout-form" class="card" novalidate>
+        <h2>Delivery details</h2>
+        <label for="customer_name">Full name</label>
+        <input id="customer_name" name="customer_name" autocomplete="name"><span class="field-error" id="e-customer_name"></span>
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" autocomplete="tel" inputmode="tel"><span class="field-error" id="e-phone"></span>
+        <label for="address">Delivery address</label>
+        <textarea id="address" name="address" rows="3" autocomplete="street-address"></textarea><span class="field-error" id="e-address"></span>
+        <div id="form-error" class="msg err hidden" role="alert"></div>
+        <p><button type="submit" class="btn" id="place-order">Place order</button></p>
+      </form>
+    </div>
+    <aside class="card summary" id="summary" aria-label="Order summary">
+      <h2>Order summary</h2>
+      <p class="meta" id="summary-restaurant"></p>
+      <p class="meta" id="summary-count"></p>
+      <div class="total"><span>To pay</span><span id="summary-total">Rs. 0</span></div>
+      <p class="meta">Pay in cash when your order arrives.</p>
+    </aside>
+  </div>
+  <div id="order-confirmation" class="card confirm hidden">
+    <div class="check" aria-hidden="true">&#10003;</div>
+    <h2>Your order is placed</h2>
+    <p>Order number <strong id="order-id"></strong>. Total: <strong id="order-total"></strong>.</p>
+    <a class="btn" id="track-link" href="track.html">Track this order</a>
+  </div>
+</main>
+<footer>QuickBite &middot; served by <span id="host">...</span></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
